@@ -1,0 +1,95 @@
+.about-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--modal-backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.about-modal {
+  background: var(--modal-bg);
+  backdrop-filter: saturate(180%) blur(24px);
+  border-radius: 0.75rem;
+  border: 1px solid var(--dropdown-border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  min-width: 20rem;
+  max-width: 24rem;
+  overflow: hidden;
+}
+
+.about-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--dropdown-border);
+
+  .about-logo {
+    font-size: 1.5rem;
+    color: var(--modal-text-strong);
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--modal-text-strong);
+  }
+}
+
+.about-modal-body {
+  padding: 1.25rem 1.25rem;
+  color: var(--modal-text);
+  font-size: 0.875rem;
+
+  .about-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: var(--modal-text-strong);
+  }
+
+  .about-role {
+    margin: 0 0 0.5rem 0;
+    color: var(--modal-text);
+  }
+
+  .about-stack {
+    margin: 0 0 0.75rem 0;
+    color: var(--modal-text);
+  }
+
+  .about-links a {
+    color: #5b8de6;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.about-modal-footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--dropdown-border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.about-btn {
+  padding: 0.35rem 1.25rem;
+  border-radius: 0.375rem;
+  border: none;
+  background: var(--modal-btn-bg);
+  color: var(--modal-text-strong);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: var(--modal-btn-hover);
+  }
+}

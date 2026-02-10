@@ -1,0 +1,60 @@
+@import "./theme.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: var(--bg-base);
+    transition: background 0.3s ease;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+
+    position: relative;
+    overflow: hidden;
+
+    background-color: var(--bg-base);
+    background-image: url(/navbar-icons/mac-wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: background-color 0.3s ease;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            var(--bg-overlay-top) 0%,
+            transparent 25%,
+            transparent 70%,
+            var(--bg-overlay-bottom) 100%
+        );
+        pointer-events: none;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            ellipse 100% 60% at 50% 100%,
+            var(--bg-overlay-radial) 0%,
+            transparent 60%
+        );
+        pointer-events: none;
+    }
+}

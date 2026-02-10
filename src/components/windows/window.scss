@@ -1,0 +1,119 @@
+.window {
+    background: var(--window-bg);
+    transition: box-shadow 0.2s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+
+    &.window--focused {
+        box-shadow:
+            0 0 0 1px rgba(0, 0, 0, 0.1),
+            0 25px 50px -12px rgba(0, 0, 0, 0.4),
+            0 0 0 1px var(--window-border);
+    }
+    backdrop-filter: saturate(180%) blur(24px);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+
+    border-radius: 0.75rem;
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid var(--window-border);
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.1),
+        0 25px 50px -12px rgba(0, 0, 0, 0.4);
+
+    color: var(--window-title-text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+
+    .nav {
+        background: var(--window-nav-bg);
+        backdrop-filter: saturate(180%) blur(12px);
+        -webkit-backdrop-filter: saturate(180%) blur(12px);
+
+        padding-inline: 0.75rem;
+        padding-block: 0.5rem;
+        border-bottom: 1px solid var(--window-border);
+        box-shadow: 0 1px 0 0 var(--scrollbar-track) inset;
+
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        .window-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-right: 0.25rem;
+
+            .window-btn {
+                width: 12px;
+                height: 12px;
+                border: none;
+                border-radius: 50%;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: filter 0.15s ease, transform 0.1s ease;
+                color: transparent;
+
+                &:hover {
+                    filter: brightness(1.15);
+                    color: rgba(0, 0, 0, 0.5);
+                }
+
+                &:active {
+                    transform: scale(0.95);
+                }
+
+                &.close {
+                    background-color: #ff5f57;
+                }
+
+                &.minimize {
+                    background-color: #febc2e;
+                }
+
+                &.maximize {
+                    background-color: #28c840;
+                }
+            }
+        }
+
+        .title {
+            flex: 1;
+            text-align: center;
+            min-width: 0;
+
+            p {
+                margin: 0;
+                font-size: 0.8125rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    .main-content {
+        height: 100%;
+        background: var(--window-content-bg);
+    }
+
+    *::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: var(--scrollbar-track);
+        border-radius: 4px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb);
+        border-radius: 4px;
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+        background: var(--scrollbar-thumb-hover);
+    }
+}

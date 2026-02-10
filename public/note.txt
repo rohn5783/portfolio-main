@@ -1,0 +1,130 @@
+/**
+ * @file: profile.config.ts
+ * @author: Aspiring Full-Stack Engineer
+ * @summary: Building scalable systems while mastering backend fundamentals.
+ */
+
+// --------------------------------------------------
+// 1. CORE SKILLS
+// --------------------------------------------------
+
+const TECH_STACK = {
+  frontend: [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "React.js",        // Learning advanced patterns
+    "TailwindCSS"
+  ],
+
+  backend: [
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "REST APIs",
+  ],
+
+  systems: [
+    "Rust",           // Exploring systems programming
+    "CLI App Development",
+  ],
+
+  tools: [
+    "Git & GitHub",
+    "Postman",
+    "Linux Basics",
+    "Vercel",
+    "Docker (Learning)"
+  ]
+};
+
+// --------------------------------------------------
+// 2. PROFESSIONAL JOURNEY
+// --------------------------------------------------
+
+class EngineeringJourney {
+
+  /**
+   * CURRENT PHASE
+   * @period 2024 - Present
+   */
+  public async FullStackPath(): Promise<object> {
+
+    const role = "Aspiring Full-Stack Developer";
+
+    const focusAreas = [
+      "Backend Engineering",
+      "Scalable API Design",
+      "Database Architecture",
+      "Systems Programming with Rust"
+    ];
+
+    const currentMission =
+      "Building real-world projects to transition into a high-impact software engineering role.";
+
+    const discipline = this.dailyRoutine([
+      "Code",
+      "Build Projects",
+      "Learn Systems Design",
+      "Improve Problem Solving"
+    ]);
+
+    return { role, focusAreas, currentMission, discipline };
+  }
+
+  private dailyRoutine(tasks: string[]) {
+    return `Executing -> ${tasks.join(" | ")}`;
+  }
+}
+
+// --------------------------------------------------
+// 3. PROJECT HIGHLIGHTS
+// --------------------------------------------------
+
+interface Project {
+  name: string;
+  impact: string;
+}
+
+const projectVault: Project[] = [
+  {
+    name: "CLI Todo App",
+    impact: "Strengthened Node.js fundamentals and file-system handling."
+  },
+
+  {
+    name: "Portfolio Website",
+    impact: "Showcases projects with modern UI and responsive design."
+  },
+  {
+    name: "Rust CLI Tools",
+    impact: "Learning memory safety, ownership, and performance-driven coding."
+  }
+];
+
+// --------------------------------------------------
+// 4. CAREER OBJECTIVE
+// --------------------------------------------------
+
+const careerObjective = {
+  shortTerm: "Become a highly skilled backend / full-stack developer.",
+  longTerm: "Reach 12+ LPA by mastering scalable systems and advanced engineering.",
+  philosophy: "Consistency > Motivation"
+};
+
+// --------------------------------------------------
+// TERMINAL SNAPSHOT
+// --------------------------------------------------
+
+/*
+$ dev --status
+
+> Mode: Deep Work
+> Goal: Elite Software Engineer
+> Learning Rate: Increasing...
+> Consistency: ███████████ 100%
+
+> Status: NOT STOPPING.
+*/
+
+export default new EngineeringJourney();
