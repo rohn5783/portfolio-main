@@ -54,7 +54,7 @@ Git | GitHub | Postman | Linux | Vercel | Docker (Fundamentals)`
         contact: {
             description: 'Get contact information',
             usage: 'contact',
-            fn: () => `📧 Email: rp5120523@gmail.com
+            fn: () => `📧 Email: web3developer.rohit@gmail.com
 📱 Phone: +91 7488331383
 📍 Location: Bihar, India
 
