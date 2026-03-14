@@ -72,7 +72,7 @@ const Dock = ({ windowsState, setWindowsState, minimizedState, setMinimizedState
                 bounce={bounceIcon === 'spotify'}
             />
             <div
-                onClick={() => window.open("mailto:ankur@example.com", "_blank")}
+                onClick={() => window.open("mailto:web3developer.rohit@gmail.com", "_blank")}
                 className="icon mail"
             >
                 <img src="/doc-icons/mail.svg" alt="" />
