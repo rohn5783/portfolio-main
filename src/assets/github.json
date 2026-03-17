@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000",
+    "image": "https://ik.imagekit.io/a4uu1ujnt/Screenshot%202026-03-17%20120605.png",
     "title": "Emotion Detector - Facial Expression Recognition",
     "description": "A facial expression recognition system that uses deep learning to identify emotions in real-time.",
-    "tags": ["TensorFlow", "Keras", "OpenCV"],
+    "tags": ["TensorFlow", "Nodejs", "OpenCV"],
     "repoLink": "https://github.com/rohn5783/Emotion-Detecter.git"
     
   },
