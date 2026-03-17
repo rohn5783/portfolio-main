@@ -12,11 +12,22 @@
 
   {
     "id": 2,
-    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1000",
+    "image": "https://ik.imagekit.io/a4uu1ujnt/Screenshot%202026-03-17%20100728.png",
     "title": "Notes App",
     "description": "A simple notes app that allows you to create, edit, and delete notes.",
     "tags": ["React", "Redux", "Material-UI", "Nodejs"],
     "repoLink": "https://github.com/rohn5783/Notes-App.git",
-    "demoLink": null
+    "demoLink": "https://notes-app-2-8e4i.onrender.com"
+  },
+  {
+    "id": 3,
+    "image": "https://ik.imagekit.io/a4uu1ujnt/Screenshot%202026-03-17%20100813.png",
+    "title": "ChitChat App",
+    "description": "A simple chat app that allows you to send messages and view previous conversations.",
+    "tags": ["React", "Redux", "NodeMailer", "Nodejs"],
+    "repoLink": "https://github.com/rohn5783/Notes-App.git"
+  
   }
+  
+
 ]
