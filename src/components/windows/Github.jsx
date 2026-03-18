@@ -24,9 +24,9 @@ const GitCard = ({ data = { id: 1, image: "", title: "", description: "", tags: 
 }
 
 
-const Github = ({ windowName, title, setWindowsState, isFocused, onFocus, onMinimize }) => {
+const Github = ({ windowName, title, setWindowsState, isFocused, onFocus, onMinimize, windowAction, onWindowActionComplete, onClose }) => {
     return (
-        <MacWindow windowName={windowName} title={title} setWindowsState={setWindowsState} isFocused={isFocused} onFocus={onFocus} onMinimize={onMinimize} >
+        <MacWindow windowName={windowName} title={title} setWindowsState={setWindowsState} isFocused={isFocused} windowAction={windowAction} onFocus={onFocus} onMinimize={onMinimize} onWindowActionComplete={onWindowActionComplete} onClose={onClose} >
             <div className="cards">
                 {githubData.map(project => {
                     return <GitCard data={project} />

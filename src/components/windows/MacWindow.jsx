@@ -1,12 +1,27 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
+import { motion, useAnimationControls } from 'framer-motion'
 import { Rnd } from 'react-rnd'
 import "./window.scss"
 
 
-const MacWindow = ({ children, width = "40vw", height = "40vh", windowName, title, setWindowsState, isFocused, onFocus, onMinimize }) => {
+const ENTRY_ANIMATION = { opacity: 1, scale: 1, x: 0, y: 0, filter: 'blur(0px)' }
+const INITIAL_ANIMATION = { opacity: 0, scale: 0.9, x: 0, y: 24, filter: 'blur(10px)' }
+const EXIT_ANIMATIONS = {
+    close: { opacity: 0, scale: 0.94, x: 0, y: 18, filter: 'blur(8px)' },
+    minimize: { opacity: 0.18, scale: 0.2, x: 0, y: 280, filter: 'blur(4px)' }
+}
+
+const MacWindow = ({ children, width = "40vw", height = "40vh", windowName, title, setWindowsState, isFocused, windowAction, onFocus, onMinimize, onClose, onWindowActionComplete }) => {
     const windowRef = useRef(null)
+    const MotionDiv = motion.div
+    const controls = useAnimationControls()
+    const isExitingRef = useRef(false)
 
     const handleClose = () => {
+        if (onClose) {
+            onClose()
+            return
+        }
         setWindowsState(state => ({ ...state, [windowName]: false }))
     }
 
@@ -28,6 +43,29 @@ const MacWindow = ({ children, width = "40vw", height = "40vh", windowName, titl
         }
     }
 
+    useEffect(() => {
+        controls.set(INITIAL_ANIMATION)
+        controls.start(ENTRY_ANIMATION, {
+            duration: 0.28,
+            ease: [0.22, 1, 0.36, 1]
+        })
+    }, [controls])
+
+    useEffect(() => {
+        if (!windowAction || isExitingRef.current) return
+
+        const runExitAnimation = async () => {
+            isExitingRef.current = true
+            await controls.start(EXIT_ANIMATIONS[windowAction] ?? EXIT_ANIMATIONS.close, {
+                duration: windowAction === 'minimize' ? 0.32 : 0.24,
+                ease: [0.32, 0, 0.2, 1]
+            })
+            onWindowActionComplete?.(windowAction)
+        }
+
+        runExitAnimation()
+    }, [controls, onWindowActionComplete, windowAction])
+
     return (
         <Rnd
             default={{
@@ -39,7 +77,12 @@ const MacWindow = ({ children, width = "40vw", height = "40vh", windowName, titl
             onMouseDown={onFocus}
             style={{ zIndex: isFocused ? 100 : 50 }}
         >
-            <div className={`window ${isFocused ? 'window--focused' : ''}`} ref={windowRef}>
+            <MotionDiv
+                className={`window ${isFocused ? 'window--focused' : ''}`}
+                ref={windowRef}
+                initial={INITIAL_ANIMATION}
+                animate={controls}
+            >
                 <div className="nav">
                     <div className="window-controls">
                         <button type="button" className="window-btn close" onClick={handleClose} aria-label="Close">
@@ -65,7 +108,7 @@ const MacWindow = ({ children, width = "40vw", height = "40vh", windowName, titl
                 <div className="main-content">
                     {children}
                 </div>
-            </div>
+            </MotionDiv>
         </Rnd>
     )
 }

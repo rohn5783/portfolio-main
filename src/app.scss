@@ -26,11 +26,11 @@ main {
     overflow: hidden;
 
     background-color: var(--bg-base);
-    background-image: url(/navbar-icons/mac-wallpaper.jpg);
+    background-image: var(--wallpaper-image);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transition: background-color 0.3s ease;
+    background-size: var(--wallpaper-size);
+    background-position: var(--wallpaper-position);
+    transition: background-color 0.3s ease, background-image 0.35s ease;
 
     &::before {
         content: "";

@@ -11,7 +11,7 @@ const items = [
   { name: 'Email', icon: '✉️', href: 'mailto:rp5120523@gmail.com' },
 ]
 
-const Finder = ({ windowName, setWindowsState, setMinimizedState, setFocusedWindow, isFocused, onFocus, onMinimize }) => {
+const Finder = ({ windowName, setWindowsState, setMinimizedState, setFocusedWindow, isFocused, onFocus, onMinimize, windowAction, onWindowActionComplete, onClose }) => {
   const openApp = (action) => {
     const item = items.find(i => i.action === action)
     if (item && !item.href) {
@@ -29,8 +29,11 @@ const Finder = ({ windowName, setWindowsState, setMinimizedState, setFocusedWind
       title="Finder"
       setWindowsState={setWindowsState}
       isFocused={isFocused}
+      windowAction={windowAction}
       onFocus={onFocus}
       onMinimize={onMinimize}
+      onWindowActionComplete={onWindowActionComplete}
+      onClose={onClose}
     >
       <div className="finder-window">
         <div className="finder-sidebar">

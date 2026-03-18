@@ -11,7 +11,13 @@ const APP_LABELS = {
   cli: 'Terminal'
 }
 
-const Nav = ({ onAboutThisMac, theme, onThemeChange, windowsState, minimizedState, setWindowsState, setMinimizedState, setFocusedWindow }) => {
+const THEME_MODE_LABELS = {
+  auto: 'Automatic',
+  light: 'Day Mode',
+  dark: 'Night Mode'
+}
+
+const Nav = ({ onAboutThisMac, theme, themePreference, onThemePreferenceChange, windowsState, setWindowsState, setMinimizedState, setFocusedWindow }) => {
   const [openMenu, setOpenMenu] = useState(null)
   const menuRef = useRef(null)
 
@@ -57,9 +63,21 @@ const Nav = ({ onAboutThisMac, theme, onThemeChange, windowsState, minimizedStat
               <div className="nav-dropdown-divider" />
               <div
                 className="nav-dropdown-item"
-                onClick={() => { onThemeChange?.(theme === 'dark' ? 'light' : 'dark'); setOpenMenu(null) }}
+                onClick={() => { onThemePreferenceChange?.('auto'); setOpenMenu(null) }}
               >
-                {theme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
+                Automatic Theme {themePreference === 'auto' ? 'On' : 'Off'}
+              </div>
+              <div
+                className="nav-dropdown-item"
+                onClick={() => { onThemePreferenceChange?.('light'); setOpenMenu(null) }}
+              >
+                Use Day Mode
+              </div>
+              <div
+                className="nav-dropdown-item"
+                onClick={() => { onThemePreferenceChange?.('dark'); setOpenMenu(null) }}
+              >
+                Use Night Mode
               </div>
             </div>
           )}
@@ -103,6 +121,9 @@ const Nav = ({ onAboutThisMac, theme, onThemeChange, windowsState, minimizedStat
         </div>
       </div>
       <div className="right">
+        <div className="nav-item">
+          <p>{THEME_MODE_LABELS[themePreference]} {theme === 'light' ? 'Day' : 'Night'}</p>
+        </div>
         <div className="nav-icon">
           <img src="/navbar-icons/wifi.svg" alt="" />
         </div>

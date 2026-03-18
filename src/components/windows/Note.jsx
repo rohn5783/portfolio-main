@@ -6,7 +6,7 @@ import MacWindow from './MacWindow'
 import "./note.scss"
 
 
-const Note = ({ windowName, title, setWindowsState, isFocused, onFocus, onMinimize }) => {
+const Note = ({ windowName, title, setWindowsState, isFocused, onFocus, onMinimize, windowAction, onWindowActionComplete, onClose }) => {
 
     const [ markdown, setMarkdown ] = useState(null)
 
@@ -17,7 +17,7 @@ const Note = ({ windowName, title, setWindowsState, isFocused, onFocus, onMinimi
     }, [])
 
     return (
-        <MacWindow windowName={windowName} title={title} setWindowsState={setWindowsState} isFocused={isFocused} onFocus={onFocus} onMinimize={onMinimize} >
+        <MacWindow windowName={windowName} title={title} setWindowsState={setWindowsState} isFocused={isFocused} windowAction={windowAction} onFocus={onFocus} onMinimize={onMinimize} onWindowActionComplete={onWindowActionComplete} onClose={onClose} >
             <div className="note-window">
                 { markdown ? <SyntaxHighlighter language='typescript' style={atelierDuneDark} >{markdown}</SyntaxHighlighter> : <p>Loading...</p> }
             </div>

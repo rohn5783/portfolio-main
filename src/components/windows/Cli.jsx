@@ -3,7 +3,7 @@ import MacWindow from './MacWindow'
 import Terminal from 'react-console-emulator'
 import "./cli.scss"
 
-const Cli = ({ windowName, title, setWindowsState, isFocused, onFocus, onMinimize }) => {
+const Cli = ({ windowName, title, setWindowsState, isFocused, onFocus, onMinimize, windowAction, onWindowActionComplete, onClose }) => {
 
     const commands = {
         about: {
@@ -141,7 +141,7 @@ Recruiters love terminals 😉
     )
 
     return (
-        <MacWindow windowName={windowName} title={title} setWindowsState={setWindowsState} isFocused={isFocused} onFocus={onFocus} onMinimize={onMinimize} >
+        <MacWindow windowName={windowName} title={title} setWindowsState={setWindowsState} isFocused={isFocused} windowAction={windowAction} onFocus={onFocus} onMinimize={onMinimize} onWindowActionComplete={onWindowActionComplete} onClose={onClose} >
             <div className="cli-window">
                 <Terminal
                     commands={commands}

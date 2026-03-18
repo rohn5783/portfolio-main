@@ -40,6 +40,7 @@
             height: 1.75rem;
             object-fit: contain;
             filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+            transform-origin: center bottom;
         }
 
         &::after {
@@ -59,17 +60,6 @@
         &.running::after {
             opacity: 1;
         }
-
-        &.bounce img {
-            animation: dock-bounce 0.5s ease;
-        }
-    }
-
-    @keyframes dock-bounce {
-        0%, 100% { transform: scale(1) translateY(0); }
-        30% { transform: scale(1.2) translateY(-0.3rem); }
-        50% { transform: scale(1.1) translateY(-0.1rem); }
-        70% { transform: scale(1.15) translateY(-0.2rem); }
     }
 
     .github,

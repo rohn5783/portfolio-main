@@ -39,6 +39,11 @@
   --finder-heading: rgba(255, 255, 255, 0.9);
   --finder-item-hover: rgba(255, 255, 255, 0.08);
   --finder-item-name: rgba(255, 255, 255, 0.9);
+  --wallpaper-image:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.18)),
+    url("/navbar-icons/mac-wallpaper.jpg");
+  --wallpaper-size: cover, cover;
+  --wallpaper-position: center, center;
 }
 
 [data-theme="light"] {
@@ -81,4 +86,34 @@
   --finder-heading: rgba(0, 0, 0, 0.9);
   --finder-item-hover: rgba(0, 0, 0, 0.06);
   --finder-item-name: rgba(0, 0, 0, 0.88);
+}
+
+[data-style-theme="minimal"] {
+  --wallpaper-image:
+    linear-gradient(160deg, rgba(248, 248, 248, 0.64), rgba(229, 231, 235, 0.3)),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.32), transparent 42%),
+    url("/navbar-icons/mac-wallpaper.jpg");
+  --wallpaper-size: cover, cover, cover;
+  --wallpaper-position: center, top left, center;
+}
+
+[data-style-theme="glassmorphism"] {
+  --wallpaper-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03)),
+    radial-gradient(circle at 20% 20%, rgba(173, 216, 255, 0.24), transparent 28%),
+    radial-gradient(circle at 78% 18%, rgba(255, 182, 193, 0.2), transparent 24%),
+    url("/navbar-icons/mac-wallpaper.jpg");
+  --wallpaper-size: cover, cover, cover, cover;
+  --wallpaper-position: center, 20% 20%, 78% 18%, center;
+}
+
+[data-style-theme="cyberpunk"] {
+  --wallpaper-image:
+    linear-gradient(135deg, rgba(255, 0, 153, 0.28), rgba(4, 0, 30, 0.56)),
+    radial-gradient(circle at 18% 22%, rgba(0, 255, 240, 0.28), transparent 22%),
+    radial-gradient(circle at 82% 30%, rgba(255, 0, 153, 0.2), transparent 24%),
+    linear-gradient(180deg, rgba(15, 9, 32, 0.22), rgba(4, 4, 12, 0.58)),
+    url("/navbar-icons/mac-wallpaper.jpg");
+  --wallpaper-size: cover, cover, cover, cover, cover;
+  --wallpaper-position: center, 18% 22%, 82% 30%, center, center;
 }
