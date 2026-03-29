@@ -30,7 +30,11 @@ main {
     background-repeat: no-repeat;
     background-size: var(--wallpaper-size);
     background-position: var(--wallpaper-position);
-    transition: background-color 0.3s ease, background-image 0.35s ease;
+    isolation: isolate;
+    transition:
+        background-color 0.65s ease,
+        background-image 0.9s ease,
+        filter 0.65s ease;
 
     &::before {
         content: "";
@@ -44,6 +48,7 @@ main {
             var(--bg-overlay-bottom) 100%
         );
         pointer-events: none;
+        transition: background 0.7s ease;
     }
 
     &::after {
@@ -56,5 +61,79 @@ main {
             transparent 60%
         );
         pointer-events: none;
+        transition: background 0.7s ease;
+    }
+}
+
+.theme-transition {
+    position: absolute;
+    inset: -12%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    mix-blend-mode: screen;
+}
+
+.theme-transition-glow,
+.theme-transition-orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(14px);
+}
+
+.theme-transition-glow {
+    inset: 6% -10%;
+}
+
+.theme-transition-orb {
+    top: 12%;
+    left: 50%;
+    width: clamp(12rem, 24vw, 22rem);
+    height: clamp(12rem, 24vw, 22rem);
+    margin-left: calc(clamp(12rem, 24vw, 22rem) / -2);
+}
+
+.theme-transition-light {
+    .theme-transition-glow {
+        background:
+            linear-gradient(115deg, rgba(255, 220, 128, 0.8), rgba(255, 173, 82, 0.34), transparent 72%),
+            radial-gradient(circle at 20% 40%, rgba(255, 246, 210, 0.72), transparent 28%),
+            radial-gradient(circle at 78% 62%, rgba(160, 214, 255, 0.25), transparent 26%);
+    }
+
+    .theme-transition-orb {
+        background:
+            radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.98), rgba(255, 226, 130, 0.92) 30%, rgba(255, 184, 74, 0.36) 56%, transparent 72%);
+        box-shadow: 0 0 70px rgba(255, 194, 95, 0.38);
+    }
+}
+
+.theme-transition-dark {
+    mix-blend-mode: soft-light;
+
+    .theme-transition-glow {
+        background:
+            linear-gradient(120deg, rgba(12, 26, 56, 0.75), rgba(58, 95, 177, 0.28), transparent 76%),
+            radial-gradient(circle at 74% 26%, rgba(171, 195, 255, 0.2), transparent 20%),
+            radial-gradient(circle at 36% 72%, rgba(114, 81, 255, 0.22), transparent 24%);
+    }
+
+    .theme-transition-orb {
+        background:
+            radial-gradient(circle at 35% 35%, rgba(238, 244, 255, 0.94), rgba(185, 207, 255, 0.62) 22%, rgba(54, 81, 151, 0.42) 46%, rgba(5, 8, 18, 0.12) 66%, transparent 76%);
+        box-shadow: 0 0 80px rgba(110, 144, 255, 0.2);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    main,
+    main::before,
+    main::after,
+    body {
+        transition-duration: 0.01ms;
+    }
+
+    .theme-transition {
+        display: none;
     }
 }

@@ -27,6 +27,15 @@
     "tags": ["React", "Redux", "NodeMailer", "Nodejs"],
     "repoLink": "https://github.com/rohn5783/Notes-App.git"
   
+  },
+   {
+    "id": 4,
+    "image": "https://ik.imagekit.io/a4uu1ujnt/Screenshot%202026-03-29%20205147.png",
+    "title": "ChitRevive",
+    "description": "Turn exported chats into a searchable workspace instead of a forgotten file.",
+    "tags": ["React", "Redux", "NodeMailer", "Nodejs"],
+    "repoLink": "https://github.com/rohn5783/ChatRevive.git"
+  
   }
   
 

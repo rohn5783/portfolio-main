@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import "./app.scss"
 import Dock from './components/Dock'
 import Nav from './components/Nav'
@@ -40,6 +40,7 @@ function App() {
   const [iconAnimation, setIconAnimation] = useState(null)
   const [windowActions, setWindowActions] = useState(INITIAL_WINDOW_ACTIONS)
   const [showAbout, setShowAbout] = useState(false)
+  const [themeTransition, setThemeTransition] = useState(null)
   const [themePreference, setThemePreference] = useState(() => {
     try {
       return localStorage.getItem(THEME_PREFERENCE_KEY) || 'auto'
@@ -51,8 +52,27 @@ function App() {
   const theme = themePreference === 'auto' ? autoTheme : themePreference
 
   useEffect(() => {
+    const previousTheme = document.documentElement.getAttribute('data-theme')
     document.documentElement.setAttribute('data-theme', theme)
+
+    if (!previousTheme || previousTheme === theme) return
+
+    setThemeTransition({
+      id: `${previousTheme}-${theme}-${Date.now()}`,
+      from: previousTheme,
+      to: theme
+    })
   }, [theme])
+
+  useEffect(() => {
+    if (!themeTransition) return undefined
+
+    const timeoutId = window.setTimeout(() => {
+      setThemeTransition(null)
+    }, 1350)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [themeTransition])
 
   useEffect(() => {
     try {
@@ -156,12 +176,52 @@ function App() {
 
   return (
     <main>
+      <AnimatePresence>
+        {themeTransition && (
+          <motion.div
+            key={themeTransition.id}
+            className={`theme-transition theme-transition-${themeTransition.to}`}
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.04 }}
+            transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+            aria-hidden="true"
+          >
+            <motion.div
+              className="theme-transition-glow"
+              initial={{ x: themeTransition.to === 'light' ? '-18%' : '18%', opacity: 0.3 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: themeTransition.to === 'light' ? '10%' : '-10%', opacity: 0 }}
+              transition={{ duration: 0.9, ease: [0.19, 1, 0.22, 1] }}
+            />
+            <motion.div
+              className="theme-transition-orb"
+              initial={{
+                x: themeTransition.to === 'light' ? '-42vw' : '42vw',
+                y: themeTransition.to === 'light' ? '7vh' : '-7vh',
+                scale: 0.8,
+                opacity: 0.2
+              }}
+              animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
+              exit={{
+                x: themeTransition.to === 'light' ? '18vw' : '-18vw',
+                y: themeTransition.to === 'light' ? '-6vh' : '6vh',
+                scale: 1.08,
+                opacity: 0
+              }}
+              transition={{ duration: 1.05, ease: [0.19, 1, 0.22, 1] }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <Nav
         onAboutThisMac={() => setShowAbout(true)}
         theme={theme}
         themePreference={themePreference}
         onThemePreferenceChange={setThemePreference}
         windowsState={windowsState}
+        focusedWindow={focusedWindow}
         minimizedState={minimizedState}
         setWindowsState={setWindowsState}
         setMinimizedState={setMinimizedState}
