@@ -5,7 +5,8 @@
     "title": "Emotion Detector - Facial Expression Recognition",
     "description": "A facial expression recognition system that uses deep learning to identify emotions in real-time.",
     "tags": ["TensorFlow", "Nodejs", "OpenCV"],
-    "repoLink": "https://github.com/rohn5783/Emotion-Detecter.git"
+    "repoLink": "https://github.com/rohn5783/Emotion-Detecter.git",
+    "demoLink": "https://emotion-detecter.onrender.com/"
     
   },
    
