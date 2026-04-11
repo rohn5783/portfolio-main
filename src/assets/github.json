@@ -37,6 +37,15 @@
     "tags": ["React", "Redux", "NodeMailer", "Nodejs"],
     "repoLink": "https://github.com/rohn5783/ChatRevive.git"
   
+  },
+  {
+     "id": 5,
+    "image": "https://ik.imagekit.io/a4uu1ujnt/Screenshot%202026-04-11%20173645.png",
+    "title": "ChitRevive",
+    "description": "AI powered tracker which can track your chanting and medidation productivity..",
+    "tags": ["React", "Redux", "NodeMailer", "Nodejs","TensorFlow" ],
+    "repoLink": "https://github.com/rohn5783/Dhyan-Track",
+    "demoLink": "https://dhyan-track-5jix-960o8x98c-rohn5783s-projects.vercel.app/landing"
   }
   
 
