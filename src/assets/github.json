@@ -45,7 +45,7 @@
     "description": "AI powered tracker which can track your chanting and medidation productivity..",
     "tags": ["React", "Redux", "NodeMailer", "Nodejs","TensorFlow" ],
     "repoLink": "https://github.com/rohn5783/Dhyan-Track",
-    "demoLink": "https://dhyan-track-5jix-960o8x98c-rohn5783s-projects.vercel.app/landing"
+    "demoLink": "https://dhyan-track.vercel.app/landing"
   }
   
 
