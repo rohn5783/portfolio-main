@@ -35,7 +35,8 @@
     "title": "ChitRevive",
     "description": "Turn exported chats into a searchable workspace instead of a forgotten file.",
     "tags": ["React", "Redux", "NodeMailer", "Nodejs"],
-    "repoLink": "https://github.com/rohn5783/ChatRevive.git"
+    "repoLink": "https://github.com/rohn5783/ChatRevive.git",
+    "demoLink": "https://chat-revive-azure.vercel.app/"
   
   },
   {
