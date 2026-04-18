@@ -47,6 +47,15 @@
     "tags": ["React", "Redux", "NodeMailer", "Nodejs","TensorFlow" ],
     "repoLink": "https://github.com/rohn5783/Dhyan-Track",
     "demoLink": "https://dhyan-track.vercel.app/landing"
+  }, 
+  {
+ "id": 6,
+    "image": "https://ik.imagekit.io/a4uu1ujnt/Screenshot%202026-04-18%20094138.png",
+    "title": "Notes Vyapar",
+    "description": "A platform to buy and sell notes online, connecting students and note sellers in a convenient marketplace.",
+    "tags": ["React", "Redux", "NodeMailer", "Nodejs","Nextjs" ],
+    "repoLink": "https://github.com/rohn5783/Notes-Vyapar",
+    "demoLink": "https://notes-vyapar-env0bin8m-rohn5783s-projects.vercel.app/"
   }
   
 
